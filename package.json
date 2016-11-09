@@ -1,0 +1,29 @@
+{
+  "name": "construct",
+  "version": "1.0.0",
+  "description": "construct is a class-inherit lib.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superwzx/construct.git"
+  },
+  "keywords": [
+    "class-inherit"
+  ],
+  "author": "superwzx <wzx175@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/superwzx/construct/issues"
+  },
+  "homepage": "https://github.com/superwzx/construct#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
+  }
+}
