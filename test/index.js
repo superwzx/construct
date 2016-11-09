@@ -1,23 +1,18 @@
 var chai = require('chai');
 var expect = chai.expect;
 
-var Construct =require('../index');
-
-
+var Construct =require('../src/index');
 
 var Animal = Construct.extend({
-	name: 'animal',
-	say: function () {
-		return 'Animal';
-	}
+	name: 'animal'
 });
 
 var Dog = Animal.extend({
-	// name: 'dog',
+	name: 'dog',
 	legs: 4,
-	// init: function (name) {
-	// 	this.name = name;
-	// },
+	init: function (name) {
+		this.name = name;
+	},
 	say: function () {
 		return 'bow-wow';
 	}
@@ -34,20 +29,14 @@ var Cat = Animal.extend({
 	}
 });
 
-
-
 describe('Dog', function() {
 	var dog = new Dog('旺财');
 
-	console.log(dog.toString)
-
 	it('The dog\'s name is `旺财`', function () {
-		expect(dog).to.have.property('toString');
-		expect(dog).to.have.property('name');
+		expect(dog).to.have.property('name').and.equal('旺财');
 	});
 
 	it('The dog has 4 legs', function () {
-		expect(dog.legs).to.equal(4);
 		expect(dog).to.have.property('legs').and.equal(4);
 	});
 
@@ -60,7 +49,7 @@ describe('Cat', function () {
 	var cat = new Cat('招财');
 
 	it('The cat\'s name is `招财`', function () {
-		expect(cat.name).to.equal('招财');
+		expect(cat).to.have.property('name').and.equal('招财');
 	});
 
 	it('The cat\'s has 4 legs', function () {

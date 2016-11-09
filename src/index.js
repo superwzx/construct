@@ -6,31 +6,27 @@ var assign = Object.assign || function() {
 	if (arguments.length == 0) {
 		return {};
 	}
-	var args = Array.prototype.slice.call(arguments);
-	var obj = {};
-	args.forEach(function(item, index) {
-		for (i in item) {
-			obj[i] = item[i];
+	var target = arguments[0];
+	[].forEach.call(arguments, function (item) {
+		for (var i in item) {
+			target[i] = item[i];
 		}
 	});
-	return obj;
+	return target;
 };
 
 
-var Construct = function() {
-	if (arguments.length) {
-		Construct.extend.apply(Construct, arguments);
-	}
-};
+var Construct = function() {};
 
 assign(Construct, {
-
 	/**
 	 *
 	 * @param prop
 	 */
 	extend: function(prop) {
-		var prototype = assign(prop, new this());
+		
+		// 扩展原型
+		var proto = assign(new this(), prop);
 
 		function F() {
 			if (this.init) {
@@ -38,16 +34,14 @@ assign(Construct, {
 			}
 		}
 
-		F.prototype = prototype;
+		F.prototype = proto;
 
 		F.prototype.constructor = F;
 
 		F.extend = this.extend;
 
 		return F;
-
 	}
 });
-
 
 module.exports = Construct;
