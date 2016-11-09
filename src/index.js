@@ -1,5 +1,5 @@
 /**
- * Created by f2e on 2016/11/7.
+ * Created by superwzx on 2016/11/7.
  */
 
 var assign = Object.assign || function() {
@@ -24,7 +24,7 @@ assign(Construct, {
 	 * @param prop
 	 */
 	extend: function(prop) {
-		
+
 		// 扩展原型
 		var proto = assign(new this(), prop);
 
